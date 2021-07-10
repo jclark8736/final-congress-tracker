@@ -1,48 +1,39 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
-const Navigation = () => {
+import { Menu, Icon } from 'semantic-ui-react'
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+export default class MenuExampleMenus extends Component {
+  state = {}
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
 
     return (
-        <div>
-            <Menu>
+      <Menu pointing secondary borderless inverted size='huge'
+      style={{
+          backgroundColor: 'navy'
+      }}>
         <Menu.Item
           name='browse'
           active={activeItem === 'browse'}
           onClick={this.handleItemClick}
         >
-          Browse
-        </Menu.Item>
-
-        <Menu.Item
-          name='submit'
-          active={activeItem === 'submit'}
-          onClick={this.handleItemClick}
-        >
-          Submit
+            <Icon name='home' />
+          Home
         </Menu.Item>
 
         <Menu.Menu position='right'>
           <Menu.Item
-            name='signup'
+            name='login'
             active={activeItem === 'signup'}
             onClick={this.handleItemClick}
+            fitted='vertically'
           >
-            Sign Up
-          </Menu.Item>
-
-          <Menu.Item
-            name='help'
-            active={activeItem === 'help'}
-            onClick={this.handleItemClick}
-          >
-            Help
+            Login
           </Menu.Item>
         </Menu.Menu>
       </Menu>
-        </div>
     )
+  }
 }
-
-export default Navigation
