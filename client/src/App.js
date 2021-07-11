@@ -1,23 +1,24 @@
-import './App.css';
-import 'semantic-ui-css/semantic.min.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import PageHead from "./Components/PageHead"
-import Navigation from './Components/Navigation';
-import LinkSideBar from './Components/LinkSideBar';
-import SearchSideBar from './Components/SearchSideBar';
-import MainPage from './Components/MainPage';
-
-
+import "semantic-ui-css/semantic.min.css";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PageHead from "./Components/PageHead";
+import MainPage from "./Components/MainPage";
+import Login from "./Components/Login";
+import Nav from './Components/Nav'
 function App() {
   return (
-    <div style={{
-      backgroundColor: 'navy'
-    }}>
-    <PageHead />
-    <Navigation />
-    <Router>
-    <MainPage />  
-    </Router>
+    <div
+      style={{
+        backgroundColor: "navy",
+      }}
+    >
+      <Router>
+        <PageHead />
+      <Nav />
+        <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/login" component={Login} />
+        </Switch>
+      </Router>
     </div>
   );
 }

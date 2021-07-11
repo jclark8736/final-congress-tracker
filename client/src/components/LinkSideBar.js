@@ -7,7 +7,7 @@ const LinkSideBar = () => {
         padding: '2em',
         color:'white'
     }}>
-      <Grid >
+      <Grid>
         <Grid.Row columns={2}>
           <Grid.Column >
             <Header size='medium' style={{color: '#ffffff'}}><a style={{color:'white'}} href="https://live.house.gov/">
