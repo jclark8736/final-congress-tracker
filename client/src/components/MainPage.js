@@ -33,7 +33,7 @@ const MainPage = () => {
               <Divider horizontal section />
               <BillCard />
             </Grid.Column>
-            <Grid.Column width={4} style={{}}>
+            <Grid.Column width={4} >
               <LinkSideBar />
             </Grid.Column>
           </Grid.Row>
