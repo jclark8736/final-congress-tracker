@@ -1,2 +1,4 @@
-placeholder 
-//allow git to keep file structure
+module.exports = { 
+    Favorite: require ("./favorite"),
+    User: require ("./user")
+}
