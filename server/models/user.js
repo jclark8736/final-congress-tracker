@@ -25,8 +25,8 @@ const UserSchema = new Schema
       zip: {
         type: Number,
         required:true,
-        min: 5,
-        max: 5
+        min: 5
+        
       },
       password: {
         type: String,
