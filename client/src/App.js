@@ -6,10 +6,13 @@ import Login from "./Components/Login";
 import Nav from "./Components/Nav";
 import Signup from "./Components/Signup";
 import LoggedNav from './Components/LoggedNav'
+import Userdash from './Components/Userdash'
+
+
 function App() {
   const tempUser = {
     name: 'David',
-    loggedIn: true
+    loggedIn:true
   }
   return (
     <div
@@ -26,6 +29,7 @@ function App() {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/user" component={Userdash} />
         </Switch>
       </Router>
     </div>
