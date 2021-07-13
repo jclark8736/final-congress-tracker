@@ -8,16 +8,24 @@ const Signup = () => {
                 <Grid.Column width={8}>
             <Form>
                 <Form.Field>
-                    <label>Email</label>
-                    <input placeholder='Username' />
+                    <label>First Name</label>
+                    <input placeholder='First Name' />
                 </Form.Field>
                 <Form.Field>
-                    <label>Password</label>
-                    <input placeholder='Password' />
+                    <label>Last Name</label>
+                    <input placeholder='Last Name' />
+                </Form.Field>
+                <Form.Field>
+                    <label>Email</label>
+                    <input placeholder='Email' />
                 </Form.Field>
                 <Form.Field>
                     <label>Zip Code</label>
-                    <input placeholder='Password' />
+                    <input placeholder='Zip' />
+                </Form.Field>
+                <Form.Field>
+                    <label>Zip Code</label>
+                    <input placeholder='password' />
                 </Form.Field>
                 <Button color='green'>Submit</Button>
             </Form>
