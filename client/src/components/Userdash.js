@@ -1,10 +1,27 @@
-import React from 'react'
+import React, {useState, useEffect,} from 'react';
+import axios from 'axios';
+import {useQuery} from "@apollo/client"
+import {QUERY_USER} from "../Utils/queries.js"
+
 import Usersidebar from './Usersidebar'
 import { Container, Header, Input, Grid, Button, Divider } from 'semantic-ui-react'
 import BillCard from './BillCard'
 import LinkSideBar from './LinkSideBar'
+
 const Userdash = () => {
-    return (
+  const {data} = useQuery (QUERY_USER)
+  console.log(data)
+  const [members, setMembers] = useState([]);
+  useEffect(() => {
+    axios.get("https://whoismyrepresentative.com/getall_mems.php?zip=07071&output=json")
+    .then(res => {
+      console.log(res.data)
+      setMembers(res.data);
+    }).catch(error => console.log(error));
+  }, []);
+    
+  
+  return (
         <div>
       <Container fluid>
         <Grid equal>
