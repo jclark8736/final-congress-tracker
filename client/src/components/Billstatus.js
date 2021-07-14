@@ -10,9 +10,9 @@ import {
   
 const Billstatus = (props) => {
     return (
-        
-            <Button fluid color={props.status === null ? ('grey') : ('green')} style={{margin:'.5em'}} >{props.name}</Button>
-        
+        <>
+            <Button fluid color={props.status === null ? ('grey') : ('green')} style={{margin:'.7em'}}>{props.name}</Button>
+        </>
 
     )
 }

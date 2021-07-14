@@ -12,14 +12,13 @@ const Userdash = (props) => {
 
   const [members, setMembers] = useState([]);
   useEffect(() => {
-
-    axios.get(`https://whoismyrepresentative.com/getall_mems.php?zip=07006&output=json`)
+    axios.get(`https://whoismyrepresentative.com/getall_mems.php?zip=07006&output=json`, {headers: {"Access-Control-Allow-Origin": "*"}})
     .then(res => {
       console.log(res.data)
       setMembers(res.data);
     }).catch(error => console.log(error));
   }, []);
-    
+  console.log(members)   
   
   return (
         <div>
