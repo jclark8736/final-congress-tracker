@@ -7,7 +7,6 @@ node_modules
 .pnp.js
 
 package-lock.json
-package.json
 *.lock.json
 
 # testing
