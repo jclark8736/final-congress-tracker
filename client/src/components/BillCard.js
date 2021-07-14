@@ -85,6 +85,8 @@ const BillCard = () => {
             </Card.Content>
             <Card.Content>
               <Grid>
+                <Grid.Row columns={2}>
+                <Grid.Column>
                 {renderBillStatus(latestBill).map((bill) => {
                   return (
                     <Billstatus
@@ -94,6 +96,13 @@ const BillCard = () => {
                     />
                   );
                 })}
+                </Grid.Column>
+               <Grid.Column>
+                 <Card fluid>
+                   <Card.Header textAlign='center'>Important Stats</Card.Header>
+                 </Card>
+               </Grid.Column>
+               </Grid.Row>
               </Grid>
             </Card.Content>
           </Card>

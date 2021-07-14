@@ -10,11 +10,9 @@ import {
   
 const Billstatus = (props) => {
     return (
-        
-          <Grid.Column width={6}>
-            <Button fluid color={props.status === null ? ('grey') : ('green')} >{props.name}</Button>
-          </Grid.Column>
-        
+        <>
+            <Button fluid color={props.status === null ? ('grey') : ('green')} style={{margin:'.7em'}}>{props.name}</Button>
+        </>
 
     )
 }
