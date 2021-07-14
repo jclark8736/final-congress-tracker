@@ -30,7 +30,7 @@ type Auth {
 
 type Query
 {
-    getUser: User
+    user(userId:ID!):User
     favoriteByUser: [Favorite]
 
 }
@@ -42,5 +42,10 @@ type Mutation {
 }
 
 `
+
+
+
+// when context is on getuser =     User: User
+    // favoriteByUser: [Favorite]
 
 module.exports = typeDefs

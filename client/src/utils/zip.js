@@ -1,9 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,} from 'react';
 import axios from 'axios';
+import {useQuery} from "@apollo/client"
+import {QUERY_USER} from "../utils/queries.js"
+
 
 
 function Zip() {
-
+//useQuery to get zip from database
+  const {data} = useQuery (QUERY_USER)
+  console.log(data)
+//begin axios call using usequery 
     const [members, setMembers] = useState([]);
     const [search, setSearch] = useState("");
   
