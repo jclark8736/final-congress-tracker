@@ -5,8 +5,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        getUser: (parent, args, context) => {
-            return User.findById(context.user._id).populate("favorites")
+        user: (parent, {userId}, context) => {
+            console.log(userId)
+            //to use with jwt decode change to context.user._id
+            //todo
+
+            return User.findOne({_id:userId})
 
         } 
 
@@ -29,3 +33,4 @@ const resolvers = {
     }
 }
 
+module.exports = resolvers;

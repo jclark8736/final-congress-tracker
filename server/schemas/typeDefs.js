@@ -18,9 +18,9 @@ type Favorite
     bill_id: String
     sponsor_name: String
     short_title: String
-    introduced_date: Date
-    house_passage: Date
-    senate_passage: Date
+    introduced_date: String
+    house_passage: String
+    senate_passage: String
 
 }
 type Auth {
@@ -30,18 +30,22 @@ type Auth {
 
 type Query
 {
-    getUser: User
+    user(userId:ID!):User
     favoriteByUser: [Favorite]
 
 }
 
 type Mutation {
-    addFavorite(bill_id:String, sponsor_name: String, short_title:String, introduced_date:Date, house_passage:Date, senate_passage:Date) : Favorite
-    addUser( firstName:String, lastName:String, email:String!, zip:Integer!, password:String) : Auth
+    addFavorite(bill_id:String, sponsor_name: String, short_title:String, introduced_date:String, house_passage:String, senate_passage:String) : Favorite
+    addUser( firstName:String, lastName:String, email:String!, zip:Int!, password:String) : Auth
     login(email:String!, password:String): Auth
 }
 
-
-
-
 `
+
+
+
+// when context is on getuser =     User: User
+    // favoriteByUser: [Favorite]
+
+module.exports = typeDefs
