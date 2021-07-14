@@ -84,7 +84,9 @@ const BillCard = () => {
               </Card.Description>
             </Card.Content>
             <Card.Content>
-              <Grid>
+              <Grid columns={2}>
+                <Grid.Row>
+                  <Grid.Column>
                 {renderBillStatus(latestBill).map((bill) => {
                   return (
                     <Billstatus
@@ -94,6 +96,14 @@ const BillCard = () => {
                     />
                   );
                 })}
+                </Grid.Column>
+                <Grid.Column textAlign='center' width={8}>
+                  <Header size="medium" textAlign='center'>Stats</Header>
+                  <a href={latestBill.congressdotgov_url}>Congress.gov Bill Page</a><br/>
+                  <a href={latestBill.govtrack_url}>GovTrack Bill Page</a>
+                  <Header size='small'>Co-Sponsors</Header>
+                </Grid.Column>
+                </Grid.Row>
               </Grid>
             </Card.Content>
           </Card>
