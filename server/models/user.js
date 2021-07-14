@@ -23,10 +23,10 @@ const UserSchema = new Schema
         unique: true,
       },
       zip: {
-        type: Integer,
+        type: Number,
         required:true,
-        min: 5,
-        max: 5
+        min: 5
+        
       },
       password: {
         type: String,
