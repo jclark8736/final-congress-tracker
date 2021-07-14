@@ -1,4 +1,5 @@
 import "semantic-ui-css/semantic.min.css";
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageHead from "./Components/PageHead";
 import MainPage from "./Components/MainPage";
@@ -8,6 +9,10 @@ import Signup from "./Components/Signup";
 import LoggedNav from './Components/LoggedNav'
 import Userdash from './Components/Userdash'
 
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache()
+})
 
 function App() {
   const tempUser = {
@@ -15,6 +20,7 @@ function App() {
     loggedIn:true
   }
   return (
+    <ApolloProvider client={client}>
     <div
       style={{
         backgroundColor: "navy",
@@ -33,6 +39,7 @@ function App() {
         </Switch>
       </Router>
     </div>
+    </ApolloProvider>
   );
 }
 
