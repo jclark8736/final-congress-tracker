@@ -7,7 +7,6 @@ const resolvers = {
     Query: {
         user: (parent, {userId}, context) => {
             console.log(userId)
-            console.log(args)
             //to use with jwt decode change to context.user._id
             //todo
 
