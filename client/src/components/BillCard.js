@@ -25,14 +25,11 @@ const BillCard = () => {
         }
       )
       .then((res) => {
-        
         console.log(res.data.results);
         setLatestBill(res.data.results[0].bills[0]);
-      })        
+      })
       .catch((error) => console.log(error));
   }, []);
-
-  console.log(sponsorInfo);
 
   function renderBillStatus(bill) {
     const billStatus = [

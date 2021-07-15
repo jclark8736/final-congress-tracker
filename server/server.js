@@ -21,12 +21,21 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(require("./controllers/ext-routes.js"));
+
+
+
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
+
+app.use(require("./controllers/ext-routes.js"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+
 
 db.once('open', () => {
   app.listen(PORT, () => {

@@ -8,8 +8,11 @@ import BillCard from './BillCard'
 import LinkSideBar from './LinkSideBar'
 
 const Userdash = (props) => {
-  // const { user } = useQuery(QUERY_USER)
-
+// const { user } = useQuery(QUERY_USER)
+// Hit DB for zip and fav bills
+// Hit zip route for reps, set this to state
+// Set favorite bills into state
+// Render components using state data.
   const [members, setMembers] = useState([]);
   
   return (

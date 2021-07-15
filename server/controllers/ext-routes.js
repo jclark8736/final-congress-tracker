@@ -1,7 +1,6 @@
-import axios from 'axios'
+const axios = require('axios')
 
 const router = require('express').Router();
-const apiKey = {headers: { "X-API-Key": "jHHlm068RlyEusHIX91YA9zmZrvEtDyGplugF6tH" }}
 
 router.post("/zip", async (req, res) => {
     console.log(req.body)
