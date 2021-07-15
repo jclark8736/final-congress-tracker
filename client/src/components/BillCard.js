@@ -6,12 +6,14 @@ import {
   Container,
   Grid,
   Divider,
+  Table
 } from "semantic-ui-react";
 import axios from "axios";
 import Billstatus from "./Billstatus";
 
 const BillCard = () => {
   const [latestBill, setLatestBill] = useState({});
+  const [sponsorInfo, setSponser] = useState({})
   console.log(latestBill);
 
   useEffect(() => {
@@ -26,9 +28,18 @@ const BillCard = () => {
         console.log(res.data.results[0].bills[0]);
         setLatestBill(res.data.results[0].bills[0]);
       })
+      .then((res) => {
+        return axios.get(`https://api.propublica.org/congress/v1/members/${latestBill.sponsor_id}.json`, {headers: { "X-API-Key": "jHHlm068RlyEusHIX91YA9zmZrvEtDyGplugF6tH" }})})
+      .then((res) => {
+        console.log(res.data.results)
+        setSponser(res.data.results[0])
+      } )
       .catch((error) => console.log(error));
-  }, []);
+  }, [])
 
+  console.log(sponsorInfo)
+  
+  
   function renderBillStatus(bill) {
     const billStatus = [
       {
@@ -50,7 +61,6 @@ const BillCard = () => {
     ];
     return billStatus;
   }
-
   console.log(renderBillStatus(latestBill));
 
   return (
@@ -85,6 +95,8 @@ const BillCard = () => {
             </Card.Content>
             <Card.Content>
               <Grid>
+                <Grid.Row columns={2}>
+                <Grid.Column>
                 {renderBillStatus(latestBill).map((bill) => {
                   return (
                     <Billstatus
@@ -94,6 +106,24 @@ const BillCard = () => {
                     />
                   );
                 })}
+                </Grid.Column>
+               <Grid.Column>
+                 <Header size="small" textAlign='center'>Additional Info</Header>
+                 <Button fluid><a href={latestBill.govtrack_url}>GovTrack Bill Link</a></Button> 
+                 <Button fluid><a href={latestBill.congressdotgov_url}>Congress.gov Bill Link</a></Button>    
+                 <Header textAlign='center' size='tiny'>Co-Sponsers By Party</Header>
+                 <Table celled textAlign='center'>
+                   <Table.Row>
+                     <Table.Cell>Democrat</Table.Cell>
+                     <Table.Cell>Republican</Table.Cell>
+                   </Table.Row>
+                   <Table.Row>
+                   <Table.Cell style={{color: 'blue'}}>{!latestBill.cosponsors_by_party ? ('') : (latestBill.cosponsors_by_party.D)}</Table.Cell>
+                     <Table.Cell style={{color: 'Red'}}>{!latestBill.cosponsors_by_party ? ('') : (latestBill.cosponsors_by_party.R)}</Table.Cell>
+                   </Table.Row>
+                   </Table>            
+               </Grid.Column>
+               </Grid.Row>
               </Grid>
             </Card.Content>
           </Card>
