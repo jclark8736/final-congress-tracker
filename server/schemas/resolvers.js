@@ -1,7 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Favorite } = require('../models');
+const { User, Congress, Favorite } = require('../models');
 
 const { signToken } = require('../utils/auth');
+
+
+//getCongress: (_, {zip})
 
 const resolvers = {
     Query: {
@@ -11,8 +14,10 @@ const resolvers = {
             //todo
 
             return User.findOne({_id:userId})
+        },
+        getCongress: (_, __, {dataSources} ) => dataSources.CongressAPI.getCongress()
 
-        } 
+
 
     }, 
     Mutation: {

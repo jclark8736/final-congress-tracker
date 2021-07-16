@@ -37,6 +37,7 @@ type Query
 {
     user(userId:ID!):User
     favoriteByUser: [Favorite]
+    getCongress:Congress
 
 }
 

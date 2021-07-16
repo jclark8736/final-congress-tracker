@@ -12,3 +12,15 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_CONGRESS = gql`
+  query getCongress($userId: ID!) {
+    user(userId: $userId) {
+      _id
+      firstName
+      lastName
+      email
+      zip
+    }
+  }
+`;
+

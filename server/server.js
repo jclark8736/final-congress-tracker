@@ -4,6 +4,7 @@ const { ApolloServer } = require('apollo-server-express');
 const db = require('./config/connection');
 const { typeDefs, resolvers } = require('./schemas');
 const routes = require("./controllers");
+const CongressAPI = require("./schemas/Congress")
 const router = require('express').Router();
 
 //app.use(routes)?
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  CongressAPI: new CongressAPI()
 });
 
 server.applyMiddleware({ app });
@@ -43,6 +45,9 @@ db.once('open', () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
+
+
+
 
 app.use(require("./controllers/ext-routes.js"));
 
