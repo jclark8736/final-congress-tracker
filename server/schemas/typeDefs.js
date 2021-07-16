@@ -37,8 +37,8 @@ type Query
 
 type Mutation {
     addFavorite(bill_id:String, sponsor_name: String, short_title:String, introduced_date:String, house_passage:String, senate_passage:String) : Favorite
-    addUser( firstName:String, lastName:String, email:String!, zip:Int!, password:String) : Auth
-    login(email:String!, password:String): Auth
+    addUser( firstName:String!, lastName:String!, email:String!, zip:Int!, password:String!) : Auth
+    login(email:String!, password:String!): Auth
 }
 
 `

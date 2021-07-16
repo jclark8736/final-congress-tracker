@@ -1,6 +1,13 @@
 import { Menu, Header, Icon, Button, Flag, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import Auth from '../Utils/auth';
+
 const LoggedNav = ({ user }) => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
   const styling = { color: "antiquewhite" };
   console.log(user)
   return (
@@ -17,13 +24,13 @@ const LoggedNav = ({ user }) => {
           User Dashboard
         </Menu.Item>
       </Link>
-      <Menu.Item style={{color:'antiquewhite', paddingBottom:'2em'}}>
-      <Flag style={{paddingRight: '1.5em'}}name='us'/>
-      Welcome, {user.name}
+      <Menu.Item style={{ color: 'antiquewhite', paddingBottom: '2em' }}>
+        <Flag style={{ paddingRight: '1.5em' }} name='us' />
+        Welcome, {user.name}
       </Menu.Item>
       <Menu.Menu position="right">
         <Menu.Item>
-          <Button color="red">Logout</Button>
+          <Button color="red" onClick={logout}>Logout</Button>
         </Menu.Item>
       </Menu.Menu>
     </Menu>
