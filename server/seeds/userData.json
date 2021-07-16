@@ -21,3 +21,4 @@
     }
   
   ]
+{props.data[0].name}

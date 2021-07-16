@@ -2,14 +2,14 @@ import { Menu, Header, Icon, Button, Flag, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Auth from '../Utils/auth';
 
-const LoggedNav = ({ user }) => {
+const LoggedNav = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
-
+  const { firstName } = Auth.getUser().data
+  
   const styling = { color: "antiquewhite" };
-  console.log(user)
   return (
     <Menu  size="large" style={{ backgroundColor: "navy" }}>
       <Link to="/">
@@ -26,7 +26,7 @@ const LoggedNav = ({ user }) => {
       </Link>
       <Menu.Item style={{ color: 'antiquewhite', paddingBottom: '2em' }}>
         <Flag style={{ paddingRight: '1.5em' }} name='us' />
-        Welcome, {user.name}
+        Welcome, {firstName}
       </Menu.Item>
       <Menu.Menu position="right">
         <Menu.Item>
