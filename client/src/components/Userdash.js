@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useQuery} from "@apollo/client"
 import {QUERY_USER} from "../Utils/queries.js"
 import Usersidebar from './Usersidebar'
-import { Container, Header, Input, Grid, Button, Divider } from 'semantic-ui-react'
+import { Container, Header, Grid, Button, Divider } from 'semantic-ui-react'
 import BillCard from './BillCard'
 import LinkSideBar from './LinkSideBar'
 import auth from '../Utils/auth.js';
