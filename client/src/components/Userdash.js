@@ -14,7 +14,16 @@ const Userdash = (props) => {
 // Set favorite bills into state
 // Render components using state data.
   const [members, setMembers] = useState([]);
-  
+  useEffect(() => {
+    axios
+      .get('/sponsor')
+        //What is the path for the backend?
+      .then((res) => {
+        console.log(res.data.results);
+        setMembers(res.data.results[0].bills[0]);
+      })
+      .catch((error) => console.log(error));
+  }, []);
   return (
         <div>
       <Container fluid>
