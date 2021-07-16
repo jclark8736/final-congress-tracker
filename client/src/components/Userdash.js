@@ -3,27 +3,27 @@ import axios from 'axios';
 import {useQuery} from "@apollo/client"
 import {QUERY_USER} from "../Utils/queries.js"
 import Usersidebar from './Usersidebar'
-import { Container, Header, Input, Grid, Button, Divider } from 'semantic-ui-react'
+import { Container, Header, Grid, Button, Divider } from 'semantic-ui-react'
 import BillCard from './BillCard'
 import LinkSideBar from './LinkSideBar'
 
 const Userdash = (props) => {
-// const { user } = useQuery(QUERY_USER)
+const { user } = useQuery(QUERY_USER, {variables: {}})
 // Hit DB for zip and fav bills
 // Hit zip route for reps, set this to state
 // Set favorite bills into state
 // Render components using state data.
   const [members, setMembers] = useState([]);
-  useEffect(() => {
-    axios
-      .get('/sponsor')
-        //What is the path for the backend?
-      .then((res) => {
-        console.log(res.data.results);
-        setMembers(res.data.results[0].bills[0]);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get('/sponsor')
+  //       //What is the path for the backend?
+  //     .then((res) => {
+  //       console.log(res.data.results);
+  //       setMembers(res.data.results[0].bills[0]);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, []);
   return (
         <div>
       <Container fluid>
