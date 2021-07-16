@@ -11,8 +11,7 @@ const LoggedNav = ({ user }) => {
   const styling = { color: "antiquewhite" };
   console.log(user)
   return (
-
-    <Menu size="large" style={{ backgroundColor: "navy" }}>
+    <Menu  size="large" style={{ backgroundColor: "navy" }}>
       <Link to="/">
         <Menu.Item style={styling}>
           <Icon name="globe" />

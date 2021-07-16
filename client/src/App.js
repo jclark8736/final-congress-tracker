@@ -8,8 +8,8 @@ import MainPage from "./Components/MainPage";
 import Login from "./Components/Login";
 import Nav from "./Components/Nav";
 import Signup from "./Components/Signup";
-import LoggedNav from './Components/LoggedNav'
-import Userdash from './Components/Userdash'
+import LoggedNav from "./Components/LoggedNav";
+import Userdash from "./Components/Userdash";
 
 import Auth from './Utils/auth';
 
