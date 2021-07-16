@@ -12,6 +12,13 @@
       "email": "jname@email.com",
       "zip": 70115,
       "password": "password123"
+    },{
+      "userId":1,
+      "firstName": "Dave",
+      "lastName": "Rullo",
+      "email": "drullo@email.com",
+      "zip": 60007,
+      "password": "password"
     }
   
   ]
