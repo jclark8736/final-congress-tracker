@@ -6,8 +6,11 @@ import Usersidebar from './Usersidebar'
 import { Container, Header, Input, Grid, Button, Divider } from 'semantic-ui-react'
 import BillCard from './BillCard'
 import LinkSideBar from './LinkSideBar'
+import auth from '../Utils/auth.js';
 
-const Userdash = (props) => {
+const Userdash = () => {
+  const [userInfo, setUser] = useState({})
+  console.log(userInfo)
 // const { user } = useQuery(QUERY_USER)
 // Hit DB for zip and fav bills
 // Hit zip route for reps, set this to state
@@ -15,6 +18,7 @@ const Userdash = (props) => {
 // Render components using state data.
   const [members, setMembers] = useState([]);
   useEffect(() => {
+    setUser(auth.getUser())
     axios
       .get('/sponsor')
         //What is the path for the backend?
