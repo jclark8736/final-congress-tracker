@@ -10,11 +10,12 @@ import {
 } from "semantic-ui-react";
 import axios from "axios";
 import Billstatus from "./Billstatus";
+import Renderbill from "./Renderbill";
 
 const BillCard = () => {
   const [latestBill, setLatestBill] = useState({});
   const [sponsorInfo, setSponser] = useState({});
-  console.log(latestBill);
+  const [allBills, setAllBills] = useState([])
 
   useEffect(() => {
     axios
@@ -27,10 +28,11 @@ const BillCard = () => {
       .then((res) => {
         console.log(res.data.results);
         setLatestBill(res.data.results[0].bills[0]);
+        setAllBills(res.data.results[0].bills)
       })
       .catch((error) => console.log(error));
   }, []);
-
+ console.log(allBills)
   function renderBillStatus(bill) {
     const billStatus = [
       {
@@ -64,78 +66,9 @@ const BillCard = () => {
     >
       <Grid centered columns={1}>
         <Grid.Column width={12}>
-          <Card fluid>
-            <Card.Content>
-              <Card.Header
-                style={{ textTransform: "uppercase", fontSize: "1.8rem" }}
-                textAlign="center"
-              >
-                {latestBill.bill_id}
-              </Card.Header>
-              <Divider />
-              <Card.Header>{latestBill.short_title}</Card.Header>
-              <Card.Description>
-                Sponsor:{" "}
-                {`${latestBill.sponsor_title} ${latestBill.sponsor_name} ${latestBill.sponsor_party}-${latestBill.sponsor_state} `}
-              </Card.Description>
-              <Card.Description>
-                <br />
-                {latestBill.title}
-              </Card.Description>
-            </Card.Content>
-            <Card.Content>
-              <Grid>
-                <Grid.Row columns={2}>
-                  <Grid.Column>
-                    <Header size='small' textAlign='center'>Bill Status</Header>
-                    {renderBillStatus(latestBill).map((bill) => {
-                      return (
-                        <Billstatus
-                          key={bill.key}
-                          name={bill.name}
-                          status={bill.status}
-                        />
-                      );
-                    })}
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Header size="small" textAlign="center">
-                      Additional Info
-                    </Header>
-                    <Button fluid>
-                      <a href={latestBill.govtrack_url}>GovTrack Bill Link</a>
-                    </Button>
-                    <Button fluid>
-                      <a href={latestBill.congressdotgov_url}>
-                        Congress.gov Bill Link
-                      </a>
-                    </Button>
-                    <Header textAlign="center" size="tiny">
-                      Co-Sponsers By Party
-                    </Header>
-                    <Table celled textAlign="center">
-                      <Table.Row>
-                        <Table.Cell>Democrat</Table.Cell>
-                        <Table.Cell>Republican</Table.Cell>
-                      </Table.Row>
-                      <Table.Row>
-                        <Table.Cell style={{ color: "blue" }}>
-                          {!latestBill.cosponsors_by_party
-                            ? ""
-                            : latestBill.cosponsors_by_party.D}
-                        </Table.Cell>
-                        <Table.Cell style={{ color: "Red" }}>
-                          {!latestBill.cosponsors_by_party
-                            ? ""
-                            : latestBill.cosponsors_by_party.R}
-                        </Table.Cell>
-                      </Table.Row>
-                    </Table>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Card.Content>
-          </Card>
+          {allBills.map(function(bill, index){
+            return <Renderbill key={index} data={bill}/>
+          })}
         </Grid.Column>
       </Grid>
     </Container>
