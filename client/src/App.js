@@ -46,10 +46,7 @@ const client = new ApolloClient({
 //~~~~~~~~~~~~~~~~~~~~~~
 
 function App() {
-  const tempUser = {
-    name: 'David'
-  }
-
+  
   //console.log("User", Auth.getUser());
   return (
     <ApolloProvider client={client}>
@@ -61,7 +58,7 @@ function App() {
       <Router>
         <PageHead />
 
-        {Auth.loggedIn() ? (<LoggedNav user={tempUser} />) : (<Nav />)}
+        {Auth.loggedIn() ? (<LoggedNav />) : (<Nav />)}
         
         <Switch>
           <Route exact path="/" component={MainPage} />

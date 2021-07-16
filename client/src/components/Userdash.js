@@ -1,9 +1,7 @@
 import React, {useState, useEffect,} from 'react';
 import axios from 'axios';
-import {useQuery} from "@apollo/client"
-import {QUERY_USER} from "../Utils/queries.js"
 import Usersidebar from './Usersidebar'
-import { Container, Header, Grid, Button, Divider } from 'semantic-ui-react'
+import { Container, Header, Grid, Divider } from 'semantic-ui-react'
 import BillCard from './BillCard'
 import LinkSideBar from './LinkSideBar'
 import auth from '../Utils/auth.js';
@@ -20,14 +18,15 @@ const Userdash = () => {
   useEffect(() => {
     setUser(auth.getUser())
     axios
-      .get('/sponsor')
-        //What is the path for the backend?
+      .get(`https://cors-anywhere.herokuapp.com/http://whoismyrepresentative.com/getall_mems.php?zip=07006&output=json`)
       .then((res) => {
-        console.log(res.data.results);
-        setMembers(res.data.results[0].bills[0]);
+        setMembers(res.data.results)
+        console.log(res);
+        // setMembers(res.data.results[0].bills[0]);
       })
       .catch((error) => console.log(error));
   }, []);
+  console.log(members)
   return (
         <div>
       <Container fluid>
@@ -39,7 +38,7 @@ const Userdash = () => {
                 marginLeft: "2em",
               }}
             >
-              <Usersidebar />
+              <Usersidebar data={members} />
             </Grid.Column>
             <Grid.Column width={8}>
               <Header
