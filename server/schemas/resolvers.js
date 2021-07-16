@@ -33,6 +33,7 @@ const resolvers = {
         //TODO
         //Auth resolvers
         addUser: async (parent, { firstName, lastName, email, zip, password }) => {
+            console.log("User", { firstName, lastName, email, zip, password})
             const user = await User.create({ firstName, lastName, email, zip, password });
             const token = signToken(user);
 
