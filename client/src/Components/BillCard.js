@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
-  Card,
-  Button,
-  Header,
   Container,
   Grid,
-  Divider,
-  Table,
 } from "semantic-ui-react";
 import axios from "axios";
 import Billstatus from "./Billstatus";
@@ -14,7 +9,6 @@ import Renderbill from "./Renderbill";
 
 const BillCard = () => {
   const [latestBill, setLatestBill] = useState({});
-  const [sponsorInfo, setSponser] = useState({});
   const [allBills, setAllBills] = useState([])
 
   useEffect(() => {

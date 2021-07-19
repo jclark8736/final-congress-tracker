@@ -1,11 +1,6 @@
 import React from 'react'
 import {
-    Card,
     Button,
-    Header,
-    Container,
-    Grid,
-    Divider,
   } from "semantic-ui-react";
   
 const Billstatus = (props) => {

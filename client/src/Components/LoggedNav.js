@@ -1,4 +1,4 @@
-import { Menu, Header, Icon, Button, Flag, Container } from "semantic-ui-react";
+import { Menu, Icon, Button, Flag } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Auth from '../Utils/auth';
 

@@ -2,6 +2,7 @@ import { Container, Header, Grid, Divider, Card } from 'semantic-ui-react'
 
 const Usersidebar = (props) => {
     console.log(props)
+    
     return (
         <Container style={{backgroundColor:'maroon', padding:'2em', paddingBottom:'5em', paddingTop:'3em'}}>
             <Header textAlign='center' size='large' style={{color:'antiquewhite'}}>Your Legislative District</Header>
@@ -34,7 +35,7 @@ const Usersidebar = (props) => {
                 </Grid.Row>
             </Grid>
         </Container>
-    )
-}
+        )}
+
 
 export default Usersidebar

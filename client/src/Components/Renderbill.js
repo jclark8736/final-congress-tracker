@@ -6,7 +6,6 @@ import {
   Divider,
   Table,
 } from "semantic-ui-react";
-import axios from "axios";
 import Billstatus from "./Billstatus";
 
 
@@ -101,6 +100,8 @@ const Renderbill = (props) => {
                   </Table.Row>
                 </Table>
               </Grid.Column>
+              
+              <Button color='orange' style={{margin: 'auto', marginTop:'1.5em'}} centered >Make Favorite</Button>
             </Grid.Row>
           </Grid>
         </Card.Content>
