@@ -23,6 +23,11 @@ type Favorite
     senate_passage: String
 
 }
+type Congress {
+    name: String
+    party: String
+    link: String
+}
 type Auth {
     token: ID!
     user: User
