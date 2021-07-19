@@ -68,7 +68,7 @@ const Login = () => {
                         </Form.Field>
                         <Button color='green'>Submit</Button>
                         <div>
-                            <Link to='/signup'>Not a member, sign up here</Link>
+                            <Link to='/signup'><Button color='blue' style={{margin:'auto', marginTop:'1.5em'}}>Not a member, sign up here</Button></Link>
                         </div>
                     </Form>
                 </Grid.Column>

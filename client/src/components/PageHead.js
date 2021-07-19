@@ -1,14 +1,11 @@
 import {
-  Image,
   Header,
   Container,
   Grid,
-  Segment,
   Divider,
 } from "semantic-ui-react";
 
 const PageHead = () => {
-  const headingStyle = {};
   return (
     <div>
       <Container fluid>

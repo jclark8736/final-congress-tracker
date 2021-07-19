@@ -5,28 +5,20 @@ import { Container, Header, Grid, Divider } from 'semantic-ui-react'
 import BillCard from './BillCard'
 import LinkSideBar from './LinkSideBar'
 import auth from '../Utils/auth.js';
-
+const tempMember = [{name: "Mikie Sherrill", party: "Democrat", state: "NJ", district: "11", phone: "202-225-5034", office: "1208 Longworth House Office Building; Washington DC 20515-3011", link: "https://sherrill.house.gov/" }, {name: "Robert Menendez", party: "Democrat", state: "NJ", district: "", phone: "202-224-4744", office: "528 Hart Senate Office Building Washington DC 20510", link: "https://www.menendez.senate.gov" }, {name: "Cory Booker", party: "Democrat", state: "NJ", district: "", phone: "202-224-3224", office: "359 Dirksen Senate Office Building Washington DC 20510", link: "https://www.booker.senate.gov" }]
+console.log(tempMember)
 const Userdash = () => {
-  const [userInfo, setUser] = useState({})
+  const [userInfo, setUser] = useState([])
   console.log(userInfo)
-// const { user } = useQuery(QUERY_USER)
-// Hit DB for zip and fav bills
-// Hit zip route for reps, set this to state
-// Set favorite bills into state
-// Render components using state data.
-  const [members, setMembers] = useState([]);
-  useEffect(() => {
-    setUser(auth.getUser())
-    axios
-      .get(`https://cors-anywhere.herokuapp.com/http://whoismyrepresentative.com/getall_mems.php?zip=07006&output=json`)
-      .then((res) => {
-        setMembers(res.data.results)
-        console.log(res);
-        // setMembers(res.data.results[0].bills[0]);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-  console.log(members)
+  const [members, setMembers] = useState([tempMember]);
+  // useEffect(() => {
+  //   setUser(auth.getUser())
+  //   axios
+  //     .get(`https://cors-anywhere.herokuapp.com/http://whoismyrepresentative.com/getall_mems.php?zip=07006&output=json`)
+  //     .then((res) => {
+  //       setMembers(tempMember)
+      
+  // }, []);
   return (
         <div>
       <Container fluid>
@@ -38,7 +30,7 @@ const Userdash = () => {
                 marginLeft: "2em",
               }}
             >
-              <Usersidebar data={members} />
+              <Usersidebar data={tempMember} />
             </Grid.Column>
             <Grid.Column width={8}>
               <Header

@@ -9,8 +9,8 @@ const LinkSideBar = () => {
     }}>
       <Grid>
         <Grid.Row columns={2}>
-          <Grid.Column >
-            <Header size='medium' style={{color: '#ffffff'}}><a style={{color:'white'}} href="https://live.house.gov/">
+          <Grid.Column>
+            <Header size='medium' style={{color: 'antiquewhite', margin: 'auto'}}><a style={{color:'white'}} href="https://live.house.gov/">
               United States Congress Live Session
             </a></Header>
           </Grid.Column>
